@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>product4</title>
+  <style>
+    * {
+    box-sizing: border-box;
+    }
+
+    .wrap {
+      /* margin: 0 auto;
+      width: 500px; */
+      margin: 0 auto;
+      width: 80%; /* 設定容器寬度為80% */
+      max-width: 500px; /* 最大寬度為500px，防止在大螢幕上過寬 */
+      background-color: rgba(255, 255, 255, 0.8); /* 使用半透明的白色背景 */
+      border-radius: 10px; /* 圓角邊框 */
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 添加陰影效果 */
+    }
+
+    h2 {
+      text-align: center;
+      color: #25a6af;
+    }
+
+    .email,
+    .password {
+      width: 100%; /*500px*/
+      height: 40px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #333;
+    }
+
+    label {
+      padding-right: 10px;
+      display: block;
+    }
+
+    input {
+      margin-top: 10px;
+    }
+
+    input:focus {
+      outline: none;
+      /* 取消focus效果 */
+    }
+
+    #btn {
+      text-align: center;
+    }
+
+    #btn input {
+      width: 45%;
+      margin: 2%;
+      margin-top: 10px;
+      border: none;
+      height: auto;
+      padding: 5px;
+      font-size: 16px;
+      border-radius: 100px;
+    }
+
+    .signUp,
+    .logIn {
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .signUp {
+      background-color: #fff;
+      color: #0e0e0e;
+    }
+
+    .signUp:hover {
+      background-color: #fe0a01;
+      color: #fff;
+    }
+
+    .logIn {
+      background-color: #ff0202;
+      color: #fff;
+      font-size: bold;
+    }
+
+    .logIn:hover {
+      background-color: #de5353;
+      color: #fff;
+    }
+
+    /* .true {
+      color: #06a81c;
+    }
+
+    .false {
+      color: red;
+    } */
+
+    body{
+      background-image: url(./picture/harley-davidson-zGzXsJUBQfs-unsplash.jpg);
+      margin: 0;
+    }
+
+    #error-message {
+      color: red;
+      margin-top: 10px;
+    }
+
+
+    @media (max-width:768px) {
+    .wrap {
+      width: 90%; /* 在小螢幕上，容器寬度變為90% */
+    }
+
+    .email,
+    .password {
+      width: 100%; /* 讓輸入框寬度滿滿的，充分利用容器寬度 */
+    }
+
+    #btn input {
+      width: 100%; /* 讓按鈕寬度佔滿容器 */
+      margin: 2% 0; /* 修改垂直間距 */
+    }
+  }
+
+  </style>
+</head>
+<body >
+    <div class="wrap">
+      <h2>會員登入</h2>
+      <!-- action="#" -->
+      <form  method="post" onsubmit="return check(this)">
+        <label for="email">會員帳號</label>
+        <input type="email" name="email" class="email" placeholder="請輸入會員帳號">
+        <br>
+        <br>
+        <label for="password">會員密碼</label>
+        <input type="password" name="password" class="password" placeholder="請輸入會員密碼">
+        <br>
+        <div id="btn">
+          <input type="submit" value="加入會員" class="signUp">
+          <input type="submit" value="會員登入" class="logIn">
+        </div>
+      </form>
+
+      <div id="error-message"></div>
+
+    </div>
+
+    <script>
+      // function check(form)
+      // {
+      //   if(form.email.value=="")
+      //   {
+      //     alert("請輸入帳號!");
+      //     form.email.focus();
+      //     return false;
+      //   }
+      //   if(form.password.value=="")
+      //   {
+      //     alert("請輸入密碼!");
+      //     form.password.focus();
+      //     return false;
+      //   }
+      //   return true;
+      // }
+
+
+      function check(form) {
+      var errorMessage = document.getElementById('error-message');
+      errorMessage.innerHTML = ''; // 清空先前的錯誤訊息
+
+      if (form.email.value === "") {
+        errorMessage.innerHTML = "請輸入帳號!";
+        form.email.focus();
+        return false;
+      }
+
+      if (form.password.value === "") {
+        errorMessage.innerHTML = "請輸入密碼!";
+        form.password.focus();
+        return false;
+      }
+
+      return true;
+    }
+    </script>
+
+
+
+
+</body>
+</html>
+
+
